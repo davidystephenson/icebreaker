@@ -1,8 +1,11 @@
-import { Heading } from '@chakra-ui/react'
+import { Container, Heading, Input } from '@chakra-ui/react'
 
 function App() {
   return (
-    <Heading>Icebreaker</Heading>
+    <Container>
+      <Heading>Icebreaker</Heading>
+      <Input />
+    </Container>
   );
 }
 
