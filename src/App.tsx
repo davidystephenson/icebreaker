@@ -1,10 +1,13 @@
-import { Container, Heading, Input } from '@chakra-ui/react'
+import { Container, Heading, Input, FormControl, Button } from '@chakra-ui/react'
 
 function App (): JSX.Element {
   return (
     <Container>
       <Heading>Icebreaker</Heading>
-      <Input />
+      <FormControl>
+        <Input />
+        <Button>Create Game</Button>
+      </FormControl>
     </Container>
   )
 }
