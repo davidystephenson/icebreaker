@@ -1,5 +1,5 @@
-import { Button, Container, Heading, Input } from '@chakra-ui/react'
 import { FormEvent } from 'react'
+import { Container, Heading, Input, FormControl, Button } from '@chakra-ui/react'
 
 function App (): JSX.Element {
   function handleSubmit (event: FormEvent): void {
@@ -8,9 +8,13 @@ function App (): JSX.Element {
   }
   return (
     <Container>
+      <Heading>Icebreaker</Heading>
+
       <form onSubmit={handleSubmit}>
-        <Heading>Icebreaker</Heading>
-        <Input />
+        <FormControl>
+          <Input />
+        </FormControl>
+
         <Button type='submit'>Create Game</Button>
       </form>
     </Container>
