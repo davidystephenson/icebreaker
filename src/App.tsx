@@ -21,6 +21,11 @@ function App (): JSX.Element {
     setMessage('Submitted')
     const addedGamesList = [...gamesList, input]
     setGamesList(addedGamesList)
+    setInput('')
+  }
+
+  function handleClick (): void {
+    setInput('')
   }
 
   return (
@@ -29,10 +34,11 @@ function App (): JSX.Element {
 
       <form onSubmit={handleSubmit}>
         <FormControl>
-          <Input onChange={handleChange} />
+          <Input onChange={handleChange} value={input} />
         </FormControl>
 
         <Button type='submit'>Create Game</Button>
+        <Button type='button' onClick={handleClick}>Reset</Button>
       </form>
       {message}
       {gameItems}
