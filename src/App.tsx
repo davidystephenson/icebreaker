@@ -1,5 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Container, Heading, Input, FormControl, Button } from '@chakra-ui/react'
+import { Routes, Route, Link } from 'react-router-dom'
+import Game from './Game'
 
 function App (): JSX.Element {
   const [message, setMessage] = useState('')
@@ -30,7 +32,8 @@ function App (): JSX.Element {
 
   return (
     <Container>
-      <Heading>Icebreaker</Heading>
+      <Heading><Link to='/'>Iceebreaker</Link></Heading>
+
 
       <form onSubmit={handleSubmit}>
         <FormControl>
@@ -42,6 +45,10 @@ function App (): JSX.Element {
       </form>
       {message}
       {gameItems}
+      <Routes>
+        <Route path='/game' element={<Game />} />
+      </Routes>
+      <Link to='game'>Game page</Link>
     </Container>
   )
 }
