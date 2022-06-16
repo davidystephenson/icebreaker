@@ -1,10 +1,23 @@
-import { Heading } from '@chakra-ui/react'
+import { Heading, Button } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 
 function Game (): JSX.Element {
+  const [number, setNumber] = useState(0)
   const params = useParams()
-  console.log('params test:', params)
-  return <Heading>{params.gameName} Game</Heading>
+
+  function handleClick (): void {
+    const newNumber = number + 1
+    setNumber(newNumber)
+  }
+
+  return (
+    <Heading>{params.gameName} Game
+      Players in game: {number}
+      <Button onClick={handleClick}>Join</Button>
+
+    </Heading>
+  )
 }
 
 export default Game

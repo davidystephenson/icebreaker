@@ -2,7 +2,7 @@ import { FormControl, Input, Button } from '@chakra-ui/react'
 import { useState, ChangeEvent, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Home (): JSX.Element {
+function Home (): JSX.Element {
   const [message, setMessage] = useState('')
   const [input, setInput] = useState('')
   const [gamesList, setGamesList] = useState(['first', 'second', 'third'])
@@ -47,3 +47,5 @@ export default function Home (): JSX.Element {
     </>
   )
 }
+
+export default Home
