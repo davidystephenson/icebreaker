@@ -1,7 +1,7 @@
 import { Auth, getAuth, signInAnonymously, signOut, User } from 'firebase/auth'
 import { useCallback, useMemo } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import contextCreator from './creator'
+import factory from './factory'
 
 interface AuthValue {
   auth: Auth
@@ -12,7 +12,7 @@ interface AuthValue {
   handleSignOut: () => void
 }
 
-function useAuthValue (): AuthValue | null {
+function useAuthValue (): AuthValue {
   const auth = useMemo(() => getAuth(), [])
   const handleSignIn = useCallback(async () => {
     try {
@@ -26,7 +26,6 @@ function useAuthValue (): AuthValue | null {
     await signOut(auth)
   }, [auth])
   const [user, loading, error] = useAuthState(auth)
-  console.log('user test:', user)
 
   const value: AuthValue = {
     auth,
@@ -43,4 +42,4 @@ function useAuthValue (): AuthValue | null {
 export const {
   useContext: useAuthContext,
   Provider: AuthProvider
-} = contextCreator({ useValue: useAuthValue, initialValue: null })
+} = factory({ useValue: useAuthValue })

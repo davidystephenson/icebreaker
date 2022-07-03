@@ -8,7 +8,6 @@ function Home (): JSX.Element {
   const handleSignIn = useAuthContext(state => state?.handleSignIn)
   const handleSignOut = useAuthContext(state => state?.handleSignOut)
 
-  console.log('loading test:', loading)
   console.log('user test:', user)
 
   if (loading !== false) {

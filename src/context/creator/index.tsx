@@ -3,31 +3,33 @@ import { createContext } from 'use-context-selector'
 
 import selectFrom from './selectFrom'
 
-type CreatedProvider <T> = (props: T & { children: ReactNode }) => JSX.Element
-type CreatedSelector <T> = <V> (selector: (value: T) => V) => V
-interface ContextCreation <T, U> {
-  Provider: CreatedProvider<U>
-  useContext: CreatedSelector<T>
+type CreatedProvider <Props> = (props: Props & { children: ReactNode }) => JSX.Element
+type CreatedSelector <Value> = <Selected> (selector: (value: Value) => Selected) => Selected
+interface ContextCreation <Value, Props> {
+  Provider: CreatedProvider<Props>
+  useContext: CreatedSelector<Value>
 }
-interface WrapperProps <T> {
-  value: T
+type CreatedContext <Value, Initial, Props> = ContextCreation<Value | Initial, Props>
+interface WrapperProps <Value> {
+  value: Value
   children: ReactNode
 }
+interface FactoryProps <Value, Props> {
+  useValue: (props: Props) => Value
+  Inside?: FC<WrapperProps<Value>>
+}
+interface CreatorProps <Value, Initial, Props> extends FactoryProps<Value, Props> {
+  initialValue: Initial
+}
 
-export default function contextCreator <T, U> ({
-  name,
+function contextCreator <Value, Initial, Props> ({
   initialValue,
   useValue,
   Inside
-}: {
-  name?: string
-  initialValue: T
-  useValue: (props: U) => T
-  Inside?: FC<WrapperProps<T>>
-}): ContextCreation<T, U> {
-  const context = createContext(initialValue)
+}: CreatorProps<Value, Initial, Props>): CreatedContext<Value, Initial, Props> {
+  const context = createContext<Value | Initial>(initialValue)
 
-  function Provider (props: U & { children: ReactNode }): JSX.Element {
+  function Provider (props: Props & { children: ReactNode }): JSX.Element {
     const value = useValue({ ...props })
 
     const content = Inside == null
@@ -49,4 +51,17 @@ export default function contextCreator <T, U> ({
   }
 
   return creation
+}
+
+export default function creatorFactory <Initial> ({ initialValue }: {
+  initialValue: Initial
+}): <Value, Props> (props: FactoryProps<Value, Props>) => CreatedContext<Value, Initial, Props> {
+  function factory <Value, Props> (props: FactoryProps<Value, Props>): CreatedContext<Value, Initial, Props> {
+    const creatorProps = { ...props, initialValue }
+    const createdContext = contextCreator<Value, Initial, Props>(creatorProps)
+
+    return createdContext
+  }
+
+  return factory
 }
