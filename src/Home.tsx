@@ -1,49 +1,34 @@
-import { FormControl, Input, Button } from '@chakra-ui/react'
-import { useState, ChangeEvent, FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner } from '@chakra-ui/react'
+import { useAuthContext } from './context/auth'
 
 function Home (): JSX.Element {
-  const [message, setMessage] = useState('')
-  const [input, setInput] = useState('')
-  const [gamesList, setGamesList] = useState(['first', 'second', 'third'])
-  function makeItem (gameName: string, index: number): JSX.Element {
-    const gameLink = `/game/${gameName}`
-    const paragraph = (
-      <p key={index}>
-        <Link to={gameLink}>{gameName}</Link>
-      </p>
+  const user = useAuthContext(state => state?.user)
+  const loading = useAuthContext(state => state?.loading)
+  const error = useAuthContext(state => state?.error)
+  const handleSignIn = useAuthContext(state => state?.handleSignIn)
+  const handleSignOut = useAuthContext(state => state?.handleSignOut)
+
+  console.log('loading test:', loading)
+  console.log('user test:', user)
+
+  if (loading !== false) {
+    return <Spinner />
+  }
+
+  if (error != null) {
+    return (
+      <Alert status='error'>
+        <AlertIcon />
+        <AlertTitle>{error.message}</AlertTitle>
+        <AlertDescription>{error.stack}</AlertDescription>
+      </Alert>
     )
-    return paragraph
-  }
-  const gameItems = gamesList.map(makeItem)
-
-  function handleChange (event: ChangeEvent<HTMLInputElement>): void {
-    setInput(event.target.value)
-    setMessage(event.target.value)
   }
 
-  function handleClick (): void {
-    setInput('')
-  }
-  function handleSubmit (event: FormEvent): void {
-    event.preventDefault()
-    setMessage('Submitted')
-    const addedGamesList = [...gamesList, input]
-    setGamesList(addedGamesList)
-    setInput('')
-  }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <FormControl>
-          <Input onChange={handleChange} value={input} />
-        </FormControl>
-
-        <Button type='submit'>Create Game</Button>
-        <Button type='button' onClick={handleClick}>Reset</Button>
-      </form>
-      {message}
-      {gameItems}
+      <Button onClick={handleSignIn}>Sign in</Button>
+      <Button onClick={handleSignOut}>Sign out</Button>
     </>
   )
 }

@@ -1,21 +1,22 @@
-import { Container, Heading } from '@chakra-ui/react'
-import { Routes, Route, Link } from 'react-router-dom'
-import Game from './Game'
-import Home from './Home'
+import { ChakraProvider, Container, Heading } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
+import { AuthProvider } from './context/auth'
+
+import Router from './Router'
 
 function App (): JSX.Element {
   return (
-    <Container>
-      <Heading><Link to='/'>Iceebreaker</Link></Heading>
-      <Routes>
-        <Route
-          path='/' element={
-            <Home />
-          }
-        />
-        <Route path='/game/:gameName' element={<Game />} />
-      </Routes>
-    </Container>
+    <ChakraProvider>
+      <AuthProvider>
+        <Container>
+          <Heading>
+            <Link to='/'>Icebreaker</Link>
+          </Heading>
+
+          <Router />
+        </Container>
+      </AuthProvider>
+    </ChakraProvider>
   )
 }
 
