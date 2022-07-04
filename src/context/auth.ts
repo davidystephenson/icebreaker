@@ -1,4 +1,4 @@
-import { Auth, getAuth, signInAnonymously, signOut, User } from 'firebase/auth'
+import { Auth, connectAuthEmulator, getAuth, signInAnonymously, signOut, User } from 'firebase/auth'
 import { useCallback, useMemo } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import factory from './factory'
@@ -10,10 +10,20 @@ interface AuthValue {
   error?: Error
   handleSignIn: () => void
   handleSignOut: () => void
+  displayName?: string
+  isAuthenticated: boolean
 }
 
 function useAuthValue (): AuthValue {
-  const auth = useMemo(() => getAuth(), [])
+  const auth = useMemo(() => {
+    const auth = getAuth()
+    if (window.location.hostname === 'localhost') {
+      connectAuthEmulator(auth, 'http://localhost:9099')
+    }
+
+    return auth
+  }, [])
+
   const handleSignIn = useCallback(async () => {
     try {
       await signInAnonymously(auth)
@@ -25,7 +35,10 @@ function useAuthValue (): AuthValue {
   const handleSignOut = useCallback(async () => {
     await signOut(auth)
   }, [auth])
+
   const [user, loading, error] = useAuthState(auth)
+  const isAuthenticated = user != null
+  const displayName = user?.displayName ?? user?.uid
 
   const value: AuthValue = {
     auth,
@@ -33,7 +46,9 @@ function useAuthValue (): AuthValue {
     loading,
     error,
     handleSignIn,
-    handleSignOut
+    handleSignOut,
+    isAuthenticated,
+    displayName
   }
 
   return value

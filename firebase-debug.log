@@ -1,0 +1,270 @@
+[debug] [2022-07-04T19:41:57.304Z] ----------------------------------------------------------------------
+[debug] [2022-07-04T19:41:57.306Z] Command:       /home/david/.nvm/versions/node/v16.13.2/bin/node /home/david/.nvm/versions/node/v16.13.2/bin/firebase emulators:start
+[debug] [2022-07-04T19:41:57.307Z] CLI Version:   11.2.0
+[debug] [2022-07-04T19:41:57.307Z] Platform:      linux
+[debug] [2022-07-04T19:41:57.307Z] Node Version:  v16.13.2
+[debug] [2022-07-04T19:41:57.307Z] Time:          Mon Jul 04 2022 21:41:57 GMT+0200 (Central European Summer Time)
+[debug] [2022-07-04T19:41:57.308Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-04T19:41:57.364Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-04T19:41:57.365Z] > authorizing via signed-in user (david@davidystephenson.com)
+[debug] [2022-07-04T19:41:57.430Z] openjdk version "11.0.15" 2022-04-19
+
+[debug] [2022-07-04T19:41:57.431Z] OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1, mixed mode, sharing)
+
+[debug] [2022-07-04T19:41:57.435Z] Parsed Java major version: 11
+[info] i  emulators: Starting emulators: auth, functions, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, hosting"}}
+[debug] [2022-07-04T19:41:57.458Z] [hub] writing locator at /tmp/hub-an-icebreaker-game.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, pubsub, storage\u001b[22m"}}
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-07-04T19:41:57.510Z] defaultcredentials: writing to file /home/david/.config/firebase/david_davidystephenson_com_application_default_credentials.json
+[debug] [2022-07-04T19:41:57.514Z] Setting GAC to /home/david/.config/firebase/david_davidystephenson_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /home/david/.config/firebase/david_davidystephenson_com_application_default_credentials.json"}}
+[debug] [2022-07-04T19:41:57.518Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/an-icebreaker-game/adminSdkConfig [none]
+[debug] [2022-07-04T19:41:57.821Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/an-icebreaker-game/adminSdkConfig 200
+[debug] [2022-07-04T19:41:57.821Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/an-icebreaker-game/adminSdkConfig {"projectId":"an-icebreaker-game","storageBucket":"an-icebreaker-game.appspot.com","locationId":"europe-west"}
+[debug] [2022-07-04T19:41:57.835Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-07-04T19:41:57.835Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-04T19:41:57.835Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/home/david/.cache/firebase/emulators/cloud-firestore-emulator-v1.14.3.jar","--host","localhost","--port",8080,"--rules","/home/david/Sync/icebreaker/firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/home/david/.cache/firebase/emulators/cloud-firestore-emulator-v1.14.3.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"/home/david/Sync/icebreaker/firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-07-04T19:41:58.777Z] Jul 04, 2022 9:41:58 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:41915
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:41:58 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://localhost:41915\n"}}
+[debug] [2022-07-04T19:41:58.838Z] API endpoint: http:// {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://"}}
+[debug] [2022-07-04T19:41:58.838Z] localhost:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"localhost:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\n"}}
+[debug] [2022-07-04T19:42:06.050Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/an-icebreaker-game/sites 
+[debug] [2022-07-04T19:42:07.129Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/an-icebreaker-game/sites 200
+[debug] [2022-07-04T19:42:07.130Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/an-icebreaker-game/sites {"sites":[{"name":"projects/an-icebreaker-game/sites/an-icebreaker-game","defaultUrl":"https://an-icebreaker-game.web.app","appId":"1:489628822436:web:6eb2871c594c6459662f31","type":"DEFAULT_SITE"}]}
+[debug] [2022-07-04T19:42:07.130Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/an-icebreaker-game/webApps/1:489628822436:web:6eb2871c594c6459662f31/config [none]
+[debug] [2022-07-04T19:42:08.153Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/an-icebreaker-game/webApps/1:489628822436:web:6eb2871c594c6459662f31/config 200
+[debug] [2022-07-04T19:42:08.154Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/an-icebreaker-game/webApps/1:489628822436:web:6eb2871c594c6459662f31/config {"projectId":"an-icebreaker-game","appId":"1:489628822436:web:6eb2871c594c6459662f31","storageBucket":"an-icebreaker-game.appspot.com","locationId":"europe-west","apiKey":"AIzaSyCZY6OK8_WDmTHiAxSUCn80D9N7qtKFO2k","authDomain":"an-icebreaker-game.firebaseapp.com","messagingSenderId":"489628822436","measurementId":"G-7FFLYQDS7W"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2022-07-04T19:42:08.197Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-04T19:42:08.197Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-07-04T19:42:08.198Z] Starting Emulator UI with command {"binary":"node","args":["--dns-result-order=ipv4first","/home/david/.cache/firebase/emulators/ui-v1.7.0/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"--dns-result-order=ipv4first\",\"/home/david/.cache/firebase/emulators/ui-v1.7.0/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-07-04T19:42:08.286Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[debug] [2022-07-04T19:42:08.350Z] Jul 04, 2022 9:42:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:42:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:42:08.389Z] Jul 04, 2022 9:42:08 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+INFO: Connected to new websocket client
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:42:08 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\nINFO: Connected to new websocket client\n"}}
+[info] i  functions: Watching "/home/david/Sync/icebreaker/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/david/Sync/icebreaker/functions\" for Cloud Functions..."}}
+[debug] [2022-07-04T19:42:08.485Z] Validating nodejs source
+[debug] [2022-07-04T19:42:09.637Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.2.0",
+    "firebase-functions": "^3.21.0",
+    "yeast": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/yeast": "^0.1.1",
+    "typescript": "^4.6.4"
+  },
+  "private": true
+}
+[debug] [2022-07-04T19:42:09.637Z] Building nodejs source
+[debug] [2022-07-04T19:42:09.637Z] Analyzing nodejs backend spec
+[debug] [2022-07-04T19:42:09.639Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-07-04T19:42:09.756Z] Serving at port 9005
+
+[debug] [2022-07-04T19:42:09.814Z] Got response from /__/functions.yaml {"endpoints":{"hi":{"platform":"gcfv1","region":["europe-west1"],"httpsTrigger":{},"entryPoint":"hi"},"onCreate":{"platform":"gcfv1","region":["europe-west1"],"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","eventFilters":{"resource":"projects/an-icebreaker-game"},"retry":false},"labels":{},"entryPoint":"onCreate"},"createGame":{"platform":"gcfv1","labels":{},"region":["europe-west1"],"callableTrigger":{},"entryPoint":"createGame"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-07-04T19:42:09.819Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions[europe-west1-hi]: http function initialized (http://localhost:5001/an-icebreaker-game/europe-west1/hi). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/an-icebreaker-game/europe-west1/hi)."}}
+[debug] [2022-07-04T19:42:09.830Z] addAuthTrigger {"eventTrigger":{"eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/an-icebreaker-game"}}
+[info] ✔  functions[europe-west1-onCreate]: auth function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mauth\u001b[22m function initialized."}}
+[info] ✔  functions[europe-west1-createGame]: http function initialized (http://localhost:5001/an-icebreaker-game/europe-west1/createGame). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/an-icebreaker-game/europe-west1/createGame)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ localhost:5001 │ http://localhost:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8080 │ http://localhost:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ localhost:5000 │ n/a                             │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-07-04T19:42:10.345Z] Jul 04, 2022 9:42:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:42:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:03.802Z] Jul 04, 2022 9:45:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:08.373Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast [none]
+[debug] [2022-07-04T19:45:08.373Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast {"eventId":"27a6dc49-70eb-4c84-a046-1cb0a1fd6918","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-04T19:45:08.373Z","data":{"uid":"eOYb5RxOkpTMUNVQwbxVMItfAOTf","metadata":{"creationTime":"2022-07-04T19:45:08.372Z","lastSignInTime":"2022-07-04T19:45:08.372Z"},"customClaims":{}}}
+[debug] [2022-07-04T19:45:08.381Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-07-04T19:45:08.381Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-07-04T19:45:08.382Z] Accepted multicast request POST /functions/projects/an-icebreaker-game/trigger_multicast --> europe-west1-onCreate-0 {"metadata":{"emulator":{"name":"functions"},"message":"Accepted multicast request POST /functions/projects/an-icebreaker-game/trigger_multicast --> europe-west1-onCreate-0"}}
+[debug] [2022-07-04T19:45:08.393Z] [worker-pool] addWorker(europe-west1-onCreate) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(europe-west1-onCreate)"}}
+[debug] [2022-07-04T19:45:08.393Z] [worker-pool] Adding worker with key europe-west1-onCreate, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key europe-west1-onCreate, total=1"}}
+[debug] [2022-07-04T19:45:08.393Z] [worker-pool] submitWork(triggerId=europe-west1-onCreate) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=europe-west1-onCreate)"}}
+[debug] [2022-07-04T19:45:08.394Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: Assigning socketPath: /tmp/fire_emu_2369090.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: Assigning socketPath: /tmp/fire_emu_2369090.sock"}}
+[debug] [2022-07-04T19:45:08.394Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: BUSY"}}
+[debug] [2022-07-04T19:45:08.399Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast 200
+[debug] [2022-07-04T19:45:08.399Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2022-07-04T19:45:09.100Z] [runtime-status] [2369090] Functions runtime initialized. {"cwd":"/home/david/Sync/icebreaker/functions","node_version":"16.13.2"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Functions runtime initialized. {\"cwd\":\"/home/david/Sync/icebreaker/functions\",\"node_version\":\"16.13.2\"}"}}
+[debug] [2022-07-04T19:45:09.101Z] [runtime-status] [2369090] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Disabled runtime features: undefined"}}
+[debug] [2022-07-04T19:45:09.103Z] [runtime-status] [2369090] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-07-04T19:45:09.104Z] [runtime-status] [2369090] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-04T19:45:09.105Z] [runtime-status] [2369090] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-07-04T19:45:09.106Z] [runtime-status] [2369090] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-04T19:45:09.132Z] [runtime-status] [2369090] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-07-04T19:45:09.132Z] [runtime-status] [2369090] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-07-04T19:45:09.134Z] [runtime-status] [2369090] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-04T19:45:09.134Z] [runtime-status] [2369090] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.3.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-07-04T19:45:09.135Z] [runtime-status] [2369090] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.22.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.22.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-07-04T19:45:09.135Z] [runtime-status] [2369090] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.3.0","resolution":"/home/david/Sync/icebreaker/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.3.0\",\"resolution\":\"/home/david/Sync/icebreaker/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-07-04T19:45:09.138Z] [runtime-status] [2369090] initializeApp(DEFAULT) {"storageBucket":"an-icebreaker-game.appspot.com","projectId":"an-icebreaker-game"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] initializeApp(DEFAULT) {\"storageBucket\":\"an-icebreaker-game.appspot.com\",\"projectId\":\"an-icebreaker-game\"}"}}
+[debug] [2022-07-04T19:45:09.151Z] [runtime-status] [2369090] Beginning invocation function onCreate! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Beginning invocation function onCreate!"}}
+[info] i  functions: Beginning execution of "onCreate" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"Beginning execution of \"onCreate\""}}
+[debug] [2022-07-04T19:45:09.151Z] [runtime-status] [2369090] Running onCreate in signature event {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Running onCreate in signature event"}}
+[debug] [2022-07-04T19:45:09.152Z] [runtime-status] [2369090] ProcessBackground {"eventId":"27a6dc49-70eb-4c84-a046-1cb0a1fd6918","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-04T19:45:08.373Z","data":{"uid":"eOYb5RxOkpTMUNVQwbxVMItfAOTf","metadata":{"creationTime":"2022-07-04T19:45:08.372Z","lastSignInTime":"2022-07-04T19:45:08.372Z"},"customClaims":{}}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] ProcessBackground {\"eventId\":\"27a6dc49-70eb-4c84-a046-1cb0a1fd6918\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":{\"name\":\"projects/an-icebreaker-game\",\"service\":\"firebaseauth.googleapis.com\"},\"params\":{},\"timestamp\":\"2022-07-04T19:45:08.373Z\",\"data\":{\"uid\":\"eOYb5RxOkpTMUNVQwbxVMItfAOTf\",\"metadata\":{\"creationTime\":\"2022-07-04T19:45:08.372Z\",\"lastSignInTime\":\"2022-07-04T19:45:08.372Z\"},\"customClaims\":{}}}"}}
+[debug] [2022-07-04T19:45:09.152Z] [runtime-status] [2369090] ProcessBackground: lifting resource.name from resource {"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] ProcessBackground: lifting resource.name from resource {\"name\":\"projects/an-icebreaker-game\",\"service\":\"firebaseauth.googleapis.com\"}"}}
+[debug] [2022-07-04T19:45:09.152Z] [runtime-status] [2369090] RunBackground {"data":{"uid":"eOYb5RxOkpTMUNVQwbxVMItfAOTf","metadata":{"creationTime":"2022-07-04T19:45:08.372Z","lastSignInTime":"2022-07-04T19:45:08.372Z"},"customClaims":{}},"context":{"eventId":"27a6dc49-70eb-4c84-a046-1cb0a1fd6918","eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/an-icebreaker-game","params":{},"timestamp":"2022-07-04T19:45:08.373Z"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] RunBackground {\"data\":{\"uid\":\"eOYb5RxOkpTMUNVQwbxVMItfAOTf\",\"metadata\":{\"creationTime\":\"2022-07-04T19:45:08.372Z\",\"lastSignInTime\":\"2022-07-04T19:45:08.372Z\"},\"customClaims\":{}},\"context\":{\"eventId\":\"27a6dc49-70eb-4c84-a046-1cb0a1fd6918\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":\"projects/an-icebreaker-game\",\"params\":{},\"timestamp\":\"2022-07-04T19:45:08.373Z\"}}"}}
+[debug] [2022-07-04T19:45:09.368Z] Jul 04, 2022 9:45:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[info] >  {"severity":"INFO","message":"User created!!"} {"user":{"severity":"INFO","message":"User created!!"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"INFO\",\"message\":\"User created!!\"}"}}
+[debug] [2022-07-04T19:45:10.032Z] [runtime-status] [2369090] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Ephemeral server survived."}}
+[info] i  functions: Finished "onCreate" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"Finished \"onCreate\" in ~1s"}}
+[debug] [2022-07-04T19:45:10.033Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: IDLE"}}
+[debug] [2022-07-04T19:45:10.034Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-07-04T19:45:10.072Z] Jul 04, 2022 9:45:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:12.981Z] Jul 04, 2022 9:45:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:13.038Z] Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:13.161Z] Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:13.317Z] Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:13.372Z] Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:13.546Z] Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:15.370Z] Jul 04, 2022 9:45:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:15 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:17.425Z] Jul 04, 2022 9:45:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:17 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:19.442Z] Jul 04, 2022 9:45:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:22.054Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast [none]
+[debug] [2022-07-04T19:45:22.054Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast {"eventId":"14f0b770-5cea-4831-a006-4180c98d7c55","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-04T19:45:22.053Z","data":{"uid":"IiJpxPzCB1mSTT85ZvkpKMgUmwrV","metadata":{"creationTime":"2022-07-04T19:45:22.053Z","lastSignInTime":"2022-07-04T19:45:22.053Z"},"customClaims":{}}}
+[debug] [2022-07-04T19:45:22.064Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-07-04T19:45:22.065Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-07-04T19:45:22.065Z] Accepted multicast request POST /functions/projects/an-icebreaker-game/trigger_multicast --> europe-west1-onCreate-0 {"metadata":{"emulator":{"name":"functions"},"message":"Accepted multicast request POST /functions/projects/an-icebreaker-game/trigger_multicast --> europe-west1-onCreate-0"}}
+[debug] [2022-07-04T19:45:22.066Z] [worker-pool] submitWork(triggerId=europe-west1-onCreate) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=europe-west1-onCreate)"}}
+[debug] [2022-07-04T19:45:22.066Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: Assigning socketPath: /tmp/fire_emu_2369090.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: Assigning socketPath: /tmp/fire_emu_2369090.sock"}}
+[debug] [2022-07-04T19:45:22.066Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: BUSY"}}
+[debug] [2022-07-04T19:45:22.071Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast 200
+[debug] [2022-07-04T19:45:22.071Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2022-07-04T19:45:22.072Z] [runtime-status] [2369090] Beginning invocation function onCreate! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Beginning invocation function onCreate!"}}
+[info] i  functions: Beginning execution of "onCreate" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"Beginning execution of \"onCreate\""}}
+[debug] [2022-07-04T19:45:22.073Z] [runtime-status] [2369090] Running onCreate in signature event {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Running onCreate in signature event"}}
+[debug] [2022-07-04T19:45:22.074Z] [runtime-status] [2369090] ProcessBackground {"eventId":"14f0b770-5cea-4831-a006-4180c98d7c55","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-04T19:45:22.053Z","data":{"uid":"IiJpxPzCB1mSTT85ZvkpKMgUmwrV","metadata":{"creationTime":"2022-07-04T19:45:22.053Z","lastSignInTime":"2022-07-04T19:45:22.053Z"},"customClaims":{}}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] ProcessBackground {\"eventId\":\"14f0b770-5cea-4831-a006-4180c98d7c55\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":{\"name\":\"projects/an-icebreaker-game\",\"service\":\"firebaseauth.googleapis.com\"},\"params\":{},\"timestamp\":\"2022-07-04T19:45:22.053Z\",\"data\":{\"uid\":\"IiJpxPzCB1mSTT85ZvkpKMgUmwrV\",\"metadata\":{\"creationTime\":\"2022-07-04T19:45:22.053Z\",\"lastSignInTime\":\"2022-07-04T19:45:22.053Z\"},\"customClaims\":{}}}"}}
+[debug] [2022-07-04T19:45:22.074Z] [runtime-status] [2369090] ProcessBackground: lifting resource.name from resource {"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] ProcessBackground: lifting resource.name from resource {\"name\":\"projects/an-icebreaker-game\",\"service\":\"firebaseauth.googleapis.com\"}"}}
+[debug] [2022-07-04T19:45:22.074Z] [runtime-status] [2369090] RunBackground {"data":{"uid":"IiJpxPzCB1mSTT85ZvkpKMgUmwrV","metadata":{"creationTime":"2022-07-04T19:45:22.053Z","lastSignInTime":"2022-07-04T19:45:22.053Z"},"customClaims":{}},"context":{"eventId":"14f0b770-5cea-4831-a006-4180c98d7c55","eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/an-icebreaker-game","params":{},"timestamp":"2022-07-04T19:45:22.053Z"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] RunBackground {\"data\":{\"uid\":\"IiJpxPzCB1mSTT85ZvkpKMgUmwrV\",\"metadata\":{\"creationTime\":\"2022-07-04T19:45:22.053Z\",\"lastSignInTime\":\"2022-07-04T19:45:22.053Z\"},\"customClaims\":{}},\"context\":{\"eventId\":\"14f0b770-5cea-4831-a006-4180c98d7c55\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":\"projects/an-icebreaker-game\",\"params\":{},\"timestamp\":\"2022-07-04T19:45:22.053Z\"}}"}}
+[info] >  {"severity":"INFO","message":"User created!!"} {"user":{"severity":"INFO","message":"User created!!"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"INFO\",\"message\":\"User created!!\"}"}}
+[debug] [2022-07-04T19:45:22.095Z] [runtime-status] [2369090] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Ephemeral server survived."}}
+[info] i  functions: Finished "onCreate" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"Finished \"onCreate\" in ~1s"}}
+[debug] [2022-07-04T19:45:22.095Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: IDLE"}}
+[debug] [2022-07-04T19:45:22.095Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-07-04T19:45:23.789Z] Jul 04, 2022 9:45:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:23.795Z] Jul 04, 2022 9:45:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:23.796Z] Jul 04, 2022 9:45:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:26.313Z] Jul 04, 2022 9:45:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:26.320Z] Jul 04, 2022 9:45:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:26 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:28.347Z] Jul 04, 2022 9:45:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:28 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:47.396Z] Jul 04, 2022 9:45:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:45:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:45:54.585Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast [none]
+[debug] [2022-07-04T19:45:54.586Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast {"eventId":"fdb9ce13-0cb1-4061-8be7-ae7f60a3ba85","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-04T19:45:54.585Z","data":{"uid":"0kwNpyYWgJrC8hrko8UBfXr61p96","metadata":{"creationTime":"2022-07-04T19:45:54.585Z","lastSignInTime":"2022-07-04T19:45:54.585Z"},"customClaims":{}}}
+[debug] [2022-07-04T19:45:54.591Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-07-04T19:45:54.593Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-07-04T19:45:54.594Z] Accepted multicast request POST /functions/projects/an-icebreaker-game/trigger_multicast --> europe-west1-onCreate-0 {"metadata":{"emulator":{"name":"functions"},"message":"Accepted multicast request POST /functions/projects/an-icebreaker-game/trigger_multicast --> europe-west1-onCreate-0"}}
+[debug] [2022-07-04T19:45:54.594Z] [worker-pool] submitWork(triggerId=europe-west1-onCreate) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=europe-west1-onCreate)"}}
+[debug] [2022-07-04T19:45:54.594Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: Assigning socketPath: /tmp/fire_emu_2369090.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: Assigning socketPath: /tmp/fire_emu_2369090.sock"}}
+[debug] [2022-07-04T19:45:54.594Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: BUSY"}}
+[debug] [2022-07-04T19:45:54.597Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast 200
+[debug] [2022-07-04T19:45:54.597Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/an-icebreaker-game/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2022-07-04T19:45:54.598Z] [runtime-status] [2369090] Beginning invocation function onCreate! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Beginning invocation function onCreate!"}}
+[info] i  functions: Beginning execution of "onCreate" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"Beginning execution of \"onCreate\""}}
+[debug] [2022-07-04T19:45:54.598Z] [runtime-status] [2369090] Running onCreate in signature event {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Running onCreate in signature event"}}
+[debug] [2022-07-04T19:45:54.599Z] [runtime-status] [2369090] ProcessBackground {"eventId":"fdb9ce13-0cb1-4061-8be7-ae7f60a3ba85","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-04T19:45:54.585Z","data":{"uid":"0kwNpyYWgJrC8hrko8UBfXr61p96","metadata":{"creationTime":"2022-07-04T19:45:54.585Z","lastSignInTime":"2022-07-04T19:45:54.585Z"},"customClaims":{}}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] ProcessBackground {\"eventId\":\"fdb9ce13-0cb1-4061-8be7-ae7f60a3ba85\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":{\"name\":\"projects/an-icebreaker-game\",\"service\":\"firebaseauth.googleapis.com\"},\"params\":{},\"timestamp\":\"2022-07-04T19:45:54.585Z\",\"data\":{\"uid\":\"0kwNpyYWgJrC8hrko8UBfXr61p96\",\"metadata\":{\"creationTime\":\"2022-07-04T19:45:54.585Z\",\"lastSignInTime\":\"2022-07-04T19:45:54.585Z\"},\"customClaims\":{}}}"}}
+[debug] [2022-07-04T19:45:54.599Z] [runtime-status] [2369090] ProcessBackground: lifting resource.name from resource {"name":"projects/an-icebreaker-game","service":"firebaseauth.googleapis.com"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] ProcessBackground: lifting resource.name from resource {\"name\":\"projects/an-icebreaker-game\",\"service\":\"firebaseauth.googleapis.com\"}"}}
+[debug] [2022-07-04T19:45:54.599Z] [runtime-status] [2369090] RunBackground {"data":{"uid":"0kwNpyYWgJrC8hrko8UBfXr61p96","metadata":{"creationTime":"2022-07-04T19:45:54.585Z","lastSignInTime":"2022-07-04T19:45:54.585Z"},"customClaims":{}},"context":{"eventId":"fdb9ce13-0cb1-4061-8be7-ae7f60a3ba85","eventType":"providers/firebase.auth/eventTypes/user.create","resource":"projects/an-icebreaker-game","params":{},"timestamp":"2022-07-04T19:45:54.585Z"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] RunBackground {\"data\":{\"uid\":\"0kwNpyYWgJrC8hrko8UBfXr61p96\",\"metadata\":{\"creationTime\":\"2022-07-04T19:45:54.585Z\",\"lastSignInTime\":\"2022-07-04T19:45:54.585Z\"},\"customClaims\":{}},\"context\":{\"eventId\":\"fdb9ce13-0cb1-4061-8be7-ae7f60a3ba85\",\"eventType\":\"providers/firebase.auth/eventTypes/user.create\",\"resource\":\"projects/an-icebreaker-game\",\"params\":{},\"timestamp\":\"2022-07-04T19:45:54.585Z\"}}"}}
+[info] >  {"severity":"INFO","message":"User created!!"} {"user":{"severity":"INFO","message":"User created!!"},"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"\u001b[90m> \u001b[39m {\"severity\":\"INFO\",\"message\":\"User created!!\"}"}}
+[debug] [2022-07-04T19:45:54.616Z] [runtime-status] [2369090] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"[runtime-status] [2369090] Ephemeral server survived."}}
+[info] i  functions: Finished "onCreate" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"europe-west1-onCreate"},"extension":{},"message":"Finished \"onCreate\" in ~1s"}}
+[debug] [2022-07-04T19:45:54.617Z] [worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-europe-west1-onCreate-3f8a1c9c-9e71-4101-8284-626c8a118081]: IDLE"}}
+[debug] [2022-07-04T19:45:54.617Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-07-04T19:46:18.014Z] Jul 04, 2022 9:46:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:46:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:46:21.339Z] Jul 04, 2022 9:46:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:46:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-07-04T19:46:24.644Z] Jul 04, 2022 9:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jul 04, 2022 9:46:24 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
