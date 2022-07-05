@@ -25,11 +25,7 @@ function useAuthValue (): AuthValue {
   }, [])
 
   const handleSignIn = useCallback(async () => {
-    try {
-      await signInAnonymously(auth)
-    } catch (error) {
-      console.error(error)
-    }
+    await signInAnonymously(auth)
   }, [auth])
 
   const handleSignOut = useCallback(async () => {

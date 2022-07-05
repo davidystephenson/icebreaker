@@ -27,10 +27,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:functions": "npm --prefix ./functions run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "emulate": "npm --prefix ./functions run build && firebase emulators:start",
-    "dev": "npx onchange -i -k \"functions/src/**.*\" -- npm run emulate"
+    "emulate": "npm run build:functions && firebase emulators:start",
+    "dev": "npx onchange -i -k \"functions/src/**.*\" -- npm run emulate",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [

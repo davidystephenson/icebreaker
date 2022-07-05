@@ -5,8 +5,16 @@ import { initializeApp } from 'firebase/app'
 
 import firebaseConfig from './firebaseConfig.json'
 import App from './App'
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
 
-initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
+
+const isLocal = window.location.hostname === 'localhost'
+if (isLocal) {
+  connectFirestoreEmulator(db, 'localhost', 8080)
+  // connectFunctionsEmulator(functions, 'localhost', 5001)
+}
 
 ReactDOM.render(
   <React.StrictMode>

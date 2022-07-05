@@ -1,4 +1,11 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner } from '@chakra-ui/react'
+import { getApp } from 'firebase/app'
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
+import { collection, getDocs, getFirestore, query } from 'firebase/firestore'
+import { connectFunctionsEmulator, getFunctions, httpsCallable } from 'firebase/functions'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+
+import appCheck from './appCheck.json'
 import { useAuthContext } from './context/auth'
 
 function Home (): JSX.Element {
@@ -9,6 +16,41 @@ function Home (): JSX.Element {
   const handleSignIn = useAuthContext(state => state?.handleSignIn)
   const handleSignOut = useAuthContext(state => state?.handleSignOut)
   const isAuthenticated = useAuthContext(state => state?.isAuthenticated)
+
+  const isLocal = window.location.hostname === 'localhost'
+  console.log('isLocal test:', isLocal)
+  const app = getApp()
+  const db = getFirestore(app)
+  const functions = getFunctions(app, 'europe-west1')
+  if (isLocal) {
+    connectFunctionsEmulator(functions, 'localhost', 5001)
+  }
+  window.FIREBASE_APPCHECK_DEBUG_TOKEN = true
+
+  const token = isLocal ? appCheck.debug : appCheck.site
+  console.log('token test:', token)
+  const provider = new ReCaptchaV3Provider(token)
+  initializeAppCheck(app, { provider, isTokenAutoRefreshEnabled: true })
+
+  const gamesRef = collection(db, 'games')
+  const [games] = useCollectionData(gamesRef)
+  console.log('games test:', games)
+
+  const createGame = httpsCallable(functions, 'createGame')
+
+  async function handleCreateGame (): Promise<void> {
+    console.log('Creating...')
+    await createGame()
+    console.log('Created!')
+    const q = query(gamesRef)
+
+    const querySnapshot = await getDocs(q)
+    console.log('querySnapshot test:', querySnapshot)
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, '=>', doc.data())
+    })
+  }
 
   console.log('user test:', user)
 
@@ -32,6 +74,7 @@ function Home (): JSX.Element {
       <Button onClick={handleSignOut}>Sign out</Button>
       {' '}
       {displayName}
+      <Button onClick={handleCreateGame}>Create game</Button>
     </>
   )
 
