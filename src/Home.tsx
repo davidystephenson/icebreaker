@@ -1,7 +1,7 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner } from '@chakra-ui/react'
 import { getApp } from 'firebase/app'
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
-import { collection, getDocs, getFirestore, query } from 'firebase/firestore'
+import { collection, getFirestore } from 'firebase/firestore'
 import { connectFunctionsEmulator, getFunctions, httpsCallable } from 'firebase/functions'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
@@ -42,14 +42,6 @@ function Home (): JSX.Element {
     console.log('Creating...')
     await createGame()
     console.log('Created!')
-    const q = query(gamesRef)
-
-    const querySnapshot = await getDocs(q)
-    console.log('querySnapshot test:', querySnapshot)
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, '=>', doc.data())
-    })
   }
 
   console.log('user test:', user)
@@ -74,6 +66,7 @@ function Home (): JSX.Element {
       <Button onClick={handleSignOut}>Sign out</Button>
       {' '}
       {displayName}
+      {' '}
       <Button onClick={handleCreateGame}>Create game</Button>
     </>
   )
