@@ -26,13 +26,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:react": "react-scripts build",
     "build:functions": "npm --prefix ./functions run build",
+    "build": "npm run build:functions && npm run build:react",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "emulate": "npm run build:functions && firebase emulators:start",
     "dev": "npx onchange -i -k \"functions/src/**.*\" -- npm run emulate",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build:react && firebase deploy",
+    "deploy:react": "npm run build:react && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": [

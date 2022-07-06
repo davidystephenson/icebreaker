@@ -1,12 +1,18 @@
-import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner } from '@chakra-ui/react'
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner, Link } from '@chakra-ui/react'
 import { getApp } from 'firebase/app'
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
-import { collection, getFirestore } from 'firebase/firestore'
+import { collection, DocumentData, getFirestore, query, QueryDocumentSnapshot, SnapshotOptions } from 'firebase/firestore'
 import { connectFunctionsEmulator, getFunctions, httpsCallable } from 'firebase/functions'
+import { useMemo } from 'react'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { Link as ReactLink } from 'react-router-dom'
 
 import appCheck from './appCheck.json'
 import { useAuthContext } from './context/auth'
+
+interface Game extends DocumentData {
+  name: string
+}
 
 function Home (): JSX.Element {
   const user = useAuthContext(state => state?.user)
@@ -20,6 +26,11 @@ function Home (): JSX.Element {
   const isLocal = window.location.hostname === 'localhost'
   console.log('isLocal test:', isLocal)
   const app = getApp()
+
+  const token = isLocal ? appCheck.debug : appCheck.site
+  console.log('token test:', token)
+  const provider = new ReCaptchaV3Provider(token)
+  initializeAppCheck(app, { provider, isTokenAutoRefreshEnabled: true })
   const db = getFirestore(app)
   const functions = getFunctions(app, 'europe-west1')
   if (isLocal) {
@@ -27,13 +38,22 @@ function Home (): JSX.Element {
   }
   window.FIREBASE_APPCHECK_DEBUG_TOKEN = true
 
-  const token = isLocal ? appCheck.debug : appCheck.site
-  console.log('token test:', token)
-  const provider = new ReCaptchaV3Provider(token)
-  initializeAppCheck(app, { provider, isTokenAutoRefreshEnabled: true })
+  const gameConverter = useMemo(() => ({
+    toFirestore (game: Game): DocumentData {
+      return game
+    },
+    fromFirestore (
+      snapshot: QueryDocumentSnapshot,
+      options: SnapshotOptions
+    ): Game {
+      const data = snapshot.data(options)
 
-  const gamesRef = collection(db, 'games')
-  const [games] = useCollectionData(gamesRef)
+      return { name: data.name }
+    }
+  }), [])
+  const gamesRef = collection(db, 'games').withConverter(gameConverter)
+  const gamesQuery = query<Game>(gamesRef)
+  const [games] = useCollectionData<Game>(gamesQuery)
   console.log('games test:', games)
 
   const createGame = httpsCallable(functions, 'createGame')
@@ -61,6 +81,17 @@ function Home (): JSX.Element {
   }
 
   const signIn = isAuthenticated === false && <Button onClick={handleSignIn}>Create account</Button>
+
+  const gameItems = games?.map(game => {
+    return (
+      <li key={game.name}>
+        <Link as={ReactLink} to={`/game/${game.name}`}>
+          {game.name}
+        </Link>
+      </li>
+    )
+  })
+  const gamesList = <ol>{gameItems}</ol>
   const signOut = isAuthenticated === true && (
     <>
       <Button onClick={handleSignOut}>Sign out</Button>
@@ -68,6 +99,7 @@ function Home (): JSX.Element {
       {displayName}
       {' '}
       <Button onClick={handleCreateGame}>Create game</Button>
+      {gamesList}
     </>
   )
 
