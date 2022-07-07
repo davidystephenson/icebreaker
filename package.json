@@ -32,7 +32,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "emulate": "npm run build:functions && firebase emulators:start",
-    "dev": "npx onchange -i -k \"functions/src/**.*\" -- npm run emulate",
+    "dev:server": "npx onchange -i -k \"functions/src/**.*\" -- npm run emulate",
+    "dev": "npm run start & npm run dev:server",
     "deploy": "npm run build:react && firebase deploy",
     "deploy:react": "npm run build:react && firebase deploy --only hosting"
   },

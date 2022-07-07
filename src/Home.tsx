@@ -1,13 +1,11 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner, Link } from '@chakra-ui/react'
 import { getApp } from 'firebase/app'
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
 import { collection, DocumentData, getFirestore, query, QueryDocumentSnapshot, SnapshotOptions } from 'firebase/firestore'
-import { connectFunctionsEmulator, getFunctions, httpsCallable } from 'firebase/functions'
+import { getFunctions, httpsCallable } from 'firebase/functions'
 import { useMemo } from 'react'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { Link as ReactLink } from 'react-router-dom'
 
-import appCheck from './appCheck.json'
 import { useAuthContext } from './context/auth'
 
 interface Game extends DocumentData {
@@ -23,37 +21,32 @@ function Home (): JSX.Element {
   const handleSignOut = useAuthContext(state => state?.handleSignOut)
   const isAuthenticated = useAuthContext(state => state?.isAuthenticated)
 
-  const isLocal = window.location.hostname === 'localhost'
-  console.log('isLocal test:', isLocal)
-  const app = getApp()
+  console.log('user test:', user)
 
-  const token = isLocal ? appCheck.debug : appCheck.site
-  console.log('token test:', token)
-  const provider = new ReCaptchaV3Provider(token)
-  initializeAppCheck(app, { provider, isTokenAutoRefreshEnabled: true })
+  const app = getApp()
   const db = getFirestore(app)
   const functions = getFunctions(app, 'europe-west1')
-  if (isLocal) {
-    connectFunctionsEmulator(functions, 'localhost', 5001)
-  }
-  window.FIREBASE_APPCHECK_DEBUG_TOKEN = true
 
-  const gameConverter = useMemo(() => ({
-    toFirestore (game: Game): DocumentData {
-      return game
-    },
-    fromFirestore (
-      snapshot: QueryDocumentSnapshot,
-      options: SnapshotOptions
-    ): Game {
-      const data = snapshot.data(options)
+  const gamesQuery = useMemo(() => {
+    console.warn('New user:', user)
+    const gameConverter = {
+      toFirestore (game: Game): DocumentData {
+        return game
+      },
+      fromFirestore (
+        snapshot: QueryDocumentSnapshot,
+        options: SnapshotOptions
+      ): Game {
+        const data = snapshot.data(options)
 
-      return { name: data.name }
+        return { name: data.name }
+      }
     }
-  }), [])
-  const gamesRef = collection(db, 'games').withConverter(gameConverter)
-  const gamesQuery = query<Game>(gamesRef)
-  const [games] = useCollectionData<Game>(gamesQuery)
+    const gamesRef = collection(db, 'games').withConverter(gameConverter)
+
+    return query(gamesRef)
+  }, [db, user])
+  const [games] = useCollectionData(gamesQuery)
   console.log('games test:', games)
 
   const createGame = httpsCallable(functions, 'createGame')
@@ -63,8 +56,6 @@ function Home (): JSX.Element {
     await createGame()
     console.log('Created!')
   }
-
-  console.log('user test:', user)
 
   if (loading !== false) {
     return <Spinner />

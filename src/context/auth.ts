@@ -1,4 +1,4 @@
-import { Auth, connectAuthEmulator, getAuth, signInAnonymously, signOut, User } from 'firebase/auth'
+import { Auth, getAuth, signInAnonymously, signOut, User } from 'firebase/auth'
 import { useCallback, useMemo } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import factory from './factory'
@@ -17,9 +17,6 @@ interface AuthValue {
 function useAuthValue (): AuthValue {
   const auth = useMemo(() => {
     const auth = getAuth()
-    if (window.location.hostname === 'localhost') {
-      connectAuthEmulator(auth, 'http://localhost:9099')
-    }
 
     return auth
   }, [])
