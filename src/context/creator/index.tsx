@@ -22,7 +22,7 @@ interface CreatorProps <Value, Initial, Props> extends FactoryProps<Value, Props
   initialValue: Initial
 }
 
-function contextCreator <Value, Initial, Props> ({
+export function contextCreator <Value, Initial, Props> ({
   initialValue,
   useValue,
   Inside
