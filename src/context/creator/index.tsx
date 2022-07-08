@@ -14,11 +14,11 @@ interface WrapperProps <Value> {
   value: Value
   children: ReactNode
 }
-interface FactoryProps <Value, Props> {
+interface FactoryProps <Value, Initial, Props> {
   useValue: (props: Props) => Value
-  Inside?: FC<WrapperProps<Value>>
+  Inside?: FC<WrapperProps<Value | Initial>>
 }
-interface CreatorProps <Value, Initial, Props> extends FactoryProps<Value, Props> {
+interface CreatorProps <Value, Initial, Props> extends FactoryProps<Value, Initial, Props> {
   initialValue: Initial
 }
 
@@ -30,7 +30,7 @@ export function contextCreator <Value, Initial, Props> ({
   const context = createContext<Value | Initial>(initialValue)
 
   function Provider (props: Props & { children: ReactNode }): JSX.Element {
-    const value = useValue({ ...props })
+    const value = useValue(props)
 
     const content = Inside == null
       ? props.children
@@ -55,8 +55,10 @@ export function contextCreator <Value, Initial, Props> ({
 
 export default function creatorFactory <Initial> ({ initialValue }: {
   initialValue: Initial
-}): <Value, Props> (props: FactoryProps<Value, Props>) => CreatedContext<Value, Initial, Props> {
-  function factory <Value, Props> (props: FactoryProps<Value, Props>): CreatedContext<Value, Initial, Props> {
+}): <Value, Props> (props: FactoryProps<Value, Initial, Props>) => CreatedContext<Value, Initial, Props> {
+  function factory <Value, Props> (
+    props: FactoryProps<Value, Initial, Props>
+  ): CreatedContext<Value, Initial, Props> {
     const creatorProps = { ...props, initialValue }
     const createdContext = contextCreator<Value, Initial, Props>(creatorProps)
 

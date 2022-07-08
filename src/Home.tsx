@@ -1,12 +1,12 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner, Link } from '@chakra-ui/react'
 import { collection, DocumentData, query, QueryDocumentSnapshot, SnapshotOptions } from 'firebase/firestore'
-import { httpsCallable } from 'firebase/functions'
 import { useMemo } from 'react'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { Link as ReactLink } from 'react-router-dom'
 
 import { useAuthContext } from './context/auth'
 import { useFireContext } from './context/fire'
+import useCall from './use/call'
 
 interface Game extends DocumentData {
   name: string
@@ -21,7 +21,6 @@ function Home (): JSX.Element {
   const handleSignOut = useAuthContext(state => state?.handleSignOut)
   const isAuthenticated = useAuthContext(state => state?.isAuthenticated)
   const db = useFireContext(state => state.db)
-  const functions = useFireContext(state => state.functions)
 
   console.log('user test:', user)
 
@@ -47,13 +46,11 @@ function Home (): JSX.Element {
   const [games] = useCollectionData(gamesQuery)
   console.log('games test:', games)
 
-  const createGame = httpsCallable(functions, 'createGame')
-
-  async function handleCreateGame (): Promise<void> {
-    console.log('Creating...')
-    await createGame()
-    console.log('Created!')
-  }
+  const { label: createLabel, run: handleCreateGame } = useCall({
+    name: 'createGame',
+    start: 'Creating...',
+    end: 'Created!'
+  })
 
   if (loading !== false) {
     return <Spinner />
@@ -87,7 +84,7 @@ function Home (): JSX.Element {
       {' '}
       {displayName}
       {' '}
-      <Button onClick={handleCreateGame}>Create game</Button>
+      <Button onClick={handleCreateGame}>Create game {createLabel}</Button>
       {gamesList}
     </>
   )

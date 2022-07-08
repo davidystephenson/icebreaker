@@ -36,15 +36,12 @@ if (isLocal) {
   connectFunctionsEmulator(functions, 'localhost', 5001)
   connectAuthEmulator(auth, 'http://localhost:9099')
 }
-const fire = { app, db, functions, auth }
-
-function useFireValue (): FireValue {
-  return fire
-}
+const fire: FireValue = { app, db, functions, auth }
 
 export const {
   useContext: useFireContext,
   Provider: FireProvider
 } = contextCreator({
-  useValue: useFireValue, initialValue: fire
+  useValue: () => fire,
+  initialValue: fire
 })
