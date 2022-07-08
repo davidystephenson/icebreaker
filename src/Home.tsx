@@ -1,12 +1,12 @@
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Button, Spinner, Link } from '@chakra-ui/react'
-import { getApp } from 'firebase/app'
-import { collection, DocumentData, getFirestore, query, QueryDocumentSnapshot, SnapshotOptions } from 'firebase/firestore'
-import { getFunctions, httpsCallable } from 'firebase/functions'
+import { collection, DocumentData, query, QueryDocumentSnapshot, SnapshotOptions } from 'firebase/firestore'
+import { httpsCallable } from 'firebase/functions'
 import { useMemo } from 'react'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { Link as ReactLink } from 'react-router-dom'
 
 import { useAuthContext } from './context/auth'
+import { useFireContext } from './context/fire'
 
 interface Game extends DocumentData {
   name: string
@@ -20,12 +20,10 @@ function Home (): JSX.Element {
   const handleSignIn = useAuthContext(state => state?.handleSignIn)
   const handleSignOut = useAuthContext(state => state?.handleSignOut)
   const isAuthenticated = useAuthContext(state => state?.isAuthenticated)
+  const db = useFireContext(state => state.db)
+  const functions = useFireContext(state => state.functions)
 
   console.log('user test:', user)
-
-  const app = getApp()
-  const db = getFirestore(app)
-  const functions = getFunctions(app, 'europe-west1')
 
   const gamesQuery = useMemo(() => {
     console.warn('New user:', user)

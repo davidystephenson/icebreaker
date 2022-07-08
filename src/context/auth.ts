@@ -1,7 +1,8 @@
-import { Auth, getAuth, signInAnonymously, signOut, User } from 'firebase/auth'
+import { Auth, signInAnonymously, signOut, User } from 'firebase/auth'
 import { useCallback, useMemo } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import factory from './factory'
+import { useFireContext } from './fire'
 
 interface AuthValue {
   auth: Auth
@@ -15,23 +16,13 @@ interface AuthValue {
 }
 
 function useAuthValue (): AuthValue {
-  const auth = useMemo(() => {
-    const auth = getAuth()
-
-    return auth
-  }, [])
-
-  const handleSignIn = useCallback(async () => {
-    await signInAnonymously(auth)
-  }, [auth])
-
-  const handleSignOut = useCallback(async () => {
-    await signOut(auth)
-  }, [auth])
+  const auth = useFireContext(state => state.auth)
+  const handleSignIn = useCallback(async () => await signInAnonymously(auth), [auth])
+  const handleSignOut = useCallback(async () => await signOut(auth), [auth])
 
   const [user, loading, error] = useAuthState(auth)
-  const isAuthenticated = user != null
-  const displayName = user?.displayName ?? user?.uid
+  const isAuthenticated = useMemo(() => user != null, [user])
+  const displayName = useMemo(() => user?.displayName ?? user?.uid, [user])
 
   const value: AuthValue = {
     auth,
